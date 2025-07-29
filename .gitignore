@@ -1,0 +1,13 @@
+# Ignore Python stuff
+backend/venv/
+*.pyc
+__pycache__/
+*.sqlite3
+
+# Ignore Node stuff
+frontend/sapflix-frontend/node_modules/
+*.log
+dist/
+
+# macOS or system files
+.DS_Store
