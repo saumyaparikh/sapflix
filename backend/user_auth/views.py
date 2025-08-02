@@ -24,7 +24,7 @@ class GoogleLoginView(APIView):
             return Response({'error': 'No token provided'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            idinfo = id_token.verify_oauth2_token(token, requests.Request(), "514934800422-1oseovnpc6lilb0f90ti2iah4p856d3v.apps.googleusercontent.com")
+            idinfo = id_token.verify_oauth2_token(token, requests.Request(), client_id)
             email = idinfo.get("email")
             name = idinfo.get("name", "")
 
