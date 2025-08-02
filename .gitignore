@@ -12,3 +12,7 @@ dist/
 
 # macOS or system files
 .DS_Store
+
+# Ignore env files
+backend/.env
+frontend/sapflix-frontend/.env
