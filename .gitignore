@@ -1,18 +1,18 @@
 # Ignore Python stuff
-backend/venv/
 *.pyc
 __pycache__/
 *.sqlite3
+backend/venv/
 venv/
 
 # Ignore Node stuff
-frontend/sapflix-frontend/node_modules/
+frontend/node_modules/
 *.log
-dist/
+frontend/dist/
 
 # macOS or system files
 .DS_Store
 
 # Ignore env files
 backend/.env
-frontend/sapflix-frontend/.env
+frontend/.env
