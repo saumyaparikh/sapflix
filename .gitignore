@@ -15,4 +15,5 @@ frontend/dist/
 
 # Ignore env files
 backend/.env
-frontend/.env
+frontend/sapflix-frontend/.env
+

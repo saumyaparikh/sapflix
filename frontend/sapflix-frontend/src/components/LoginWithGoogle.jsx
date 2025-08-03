@@ -1,7 +1,7 @@
 import { GoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
 
-export default function LoginWithGoogle() {
+export default function LoginWithGoogle({ setIsLoggedIn }) {
   const handleLogin = async (response) => {
     console.log("Google credential:", response.credential)
     try {
@@ -11,8 +11,13 @@ export default function LoginWithGoogle() {
         { headers: { 'Content-Type': 'application/json' } }
       )
       console.log('Login success:', res.data)
+
+      // Store tokens
       localStorage.setItem('access', res.data.access)
       localStorage.setItem('refresh', res.data.refresh)
+
+      // Update login state
+      setIsLoggedIn(true)
     } catch (err) {
       console.error('Google login error:', err.response?.data || err.message)
     }
@@ -21,12 +26,14 @@ export default function LoginWithGoogle() {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
       <GoogleLogin
-        theme="filled_blue"        // or "filled_blue", "filled_black"
-  size="large"           // or "medium", "small"
-  text="signin_with"     // or "signup_with", "continue_with", "signin"
-  shape="pill"           // or "rectangular"
-  width="200"         // or any specific width like "300px"
-       onSuccess={handleLogin} onError={() => console.log('Login Failed')} />
+        theme="filled_blue"
+        size="large"
+        text="signin_with"
+        shape="pill"
+        width="200"
+        onSuccess={handleLogin}
+        onError={() => console.log('Login Failed')}
+      />
     </div>
   )
 }
